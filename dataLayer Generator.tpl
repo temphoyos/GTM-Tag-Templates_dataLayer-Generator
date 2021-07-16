@@ -97,7 +97,6 @@ else{
 
 
 
-// Ejecute data.gtmOnSuccess cuando la etiqueta haya finalizado.
 data.gtmOnSuccess();
 
 
