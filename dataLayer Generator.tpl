@@ -52,10 +52,11 @@ ___TEMPLATE_PARAMETERS___
 
 ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
 
-//I call the necessary API's to work with the dataLayer
+//API's to work with the dataLayer
 const createQueue = require('createQueue');
 const dataLayerPush = createQueue('dataLayer');
 const makeTableMap = require('makeTableMap');
+//API's to console log
 const log = require('logToConsole');
 
 
@@ -68,7 +69,8 @@ if(data.simpleTable){
     let dataLayerEvent = data.eventName;
     dataLayerKeyValues.event = dataLayerEvent;
     dataLayerPush(dataLayerKeyValues);
-    log('Hay evento: ', dataLayerKeyValues);
+    //Uncomment the following line in order to log in your browser's console the object being pushed to your dataLayer
+    /*log('Hay evento: ', dataLayerKeyValues);*/
 
   }
  //If there are dataLayer key-value pairs configured but no event name
@@ -76,7 +78,8 @@ if(data.simpleTable){
   
      const dataLayerKeyValues = makeTableMap(data.simpleTable, 'key', 'value');
       dataLayerPush(dataLayerKeyValues);
-     log('No hay evento: ', dataLayerKeyValues);
+      //Uncomment the following line in order to log in your browser's console the object being pushed to your dataLayer
+     /*log('No hay evento: ', dataLayerKeyValues);*/
   
   } 
 }
@@ -87,7 +90,8 @@ else{
   
     let dataLayerEvent = data.eventName;
     dataLayerPush({'event':dataLayerEvent});
-    log('No simpleTable defined', dataLayerEvent);
+    //Uncomment the following line in order to log in your browser's console the object being pushed to your dataLayer
+    /*log('No simpleTable defined', dataLayerEvent);*/
 
   
   }
@@ -97,6 +101,7 @@ else{
 
 
 
+// Ejecute data.gtmOnSuccess cuando la etiqueta haya finalizado.
 data.gtmOnSuccess();
 
 
@@ -195,6 +200,7 @@ scenarios: []
 
 ___NOTES___
 
-Created on 12/7/2021 21:54:28
+Created on 23/8/2021 12:11:33
+
 
 
